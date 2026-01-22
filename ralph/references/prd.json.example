@@ -2,70 +2,84 @@
   "project": "MyApp",
   "branchName": "ralph/task-priority",
   "description": "Task Priority System - Add priority levels to tasks",
-  "items": [
+  "userStories": [
     {
+      "id": "US-001",
+      "title": "Add priority field to database",
+      "description": "As a developer, I need to store task priority so it persists across sessions.",
       "category": "backend",
-      "description": "Add priority column to tasks table: 'high' | 'medium' | 'low' (default 'medium')",
       "steps": [
         "Add priority field to tasks model in schema",
         "Generate migration with yarn make-migrations",
         "Run migration with yarn migrate"
       ],
-      "verification": [
+      "acceptanceCriteria": [
+        "Priority column exists: 'high' | 'medium' | 'low' (default 'medium')",
         "Migration runs successfully",
         "Typecheck passes"
       ],
-      "passes": false
+      "passes": false,
+      "notes": ""
     },
     {
+      "id": "US-002",
+      "title": "Display priority indicator on task cards",
+      "description": "As a user, I want to see task priority at a glance so I know what needs attention first.",
       "category": "ui",
-      "description": "Display colored priority badge on each task card (red=high, yellow=medium, gray=low)",
       "steps": [
         "Create PriorityBadge component",
         "Add badge to TaskCard component",
         "Style with appropriate colors per priority level"
       ],
-      "verification": [
+      "acceptanceCriteria": [
+        "Each task card shows colored priority badge (red=high, yellow=medium, gray=low)",
         "Priority visible without hovering or clicking",
         "Typecheck passes",
-        "Verify in browser"
+        "Verify in browser using dev-browser skill"
       ],
-      "passes": false
+      "passes": false,
+      "notes": ""
     },
     {
+      "id": "US-003",
+      "title": "Add priority selector to task edit",
+      "description": "As a user, I want to change a task's priority when editing it.",
       "category": "ui",
-      "description": "Add priority dropdown selector to task edit modal",
       "steps": [
         "Add priority field to task edit form",
         "Wire up onChange to save immediately",
         "Show current priority as selected value"
       ],
-      "verification": [
+      "acceptanceCriteria": [
         "Dropdown shows all priority options",
         "Current priority is pre-selected",
         "Changes save immediately on selection",
         "Typecheck passes",
-        "Verify in browser"
+        "Verify in browser using dev-browser skill"
       ],
-      "passes": false
+      "passes": false,
+      "notes": ""
     },
     {
+      "id": "US-004",
+      "title": "Filter tasks by priority",
+      "description": "As a user, I want to filter the task list to see only high-priority items when I'm focused.",
       "category": "ui",
-      "description": "Add filter dropdown to filter tasks by priority level",
       "steps": [
         "Add filter dropdown with options: All | High | Medium | Low",
         "Persist filter selection in URL params",
         "Filter task list based on selection",
         "Add empty state message when no tasks match"
       ],
-      "verification": [
+      "acceptanceCriteria": [
         "Filter persists in URL params",
         "Task list updates when filter changes",
         "Empty state shows when no tasks match",
         "Typecheck passes",
-        "Verify in browser"
+        "Verify in browser using dev-browser skill"
       ],
-      "passes": false
+      "passes": false,
+      "notes": ""
     }
   ]
 }
