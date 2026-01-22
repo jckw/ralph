@@ -1,0 +1,71 @@
+{
+  "project": "MyApp",
+  "branchName": "ralph/task-priority",
+  "description": "Task Priority System - Add priority levels to tasks",
+  "items": [
+    {
+      "category": "backend",
+      "description": "Add priority column to tasks table: 'high' | 'medium' | 'low' (default 'medium')",
+      "steps": [
+        "Add priority field to tasks model in schema",
+        "Generate migration with yarn make-migrations",
+        "Run migration with yarn migrate"
+      ],
+      "verification": [
+        "Migration runs successfully",
+        "Typecheck passes"
+      ],
+      "passes": false
+    },
+    {
+      "category": "ui",
+      "description": "Display colored priority badge on each task card (red=high, yellow=medium, gray=low)",
+      "steps": [
+        "Create PriorityBadge component",
+        "Add badge to TaskCard component",
+        "Style with appropriate colors per priority level"
+      ],
+      "verification": [
+        "Priority visible without hovering or clicking",
+        "Typecheck passes",
+        "Verify in browser"
+      ],
+      "passes": false
+    },
+    {
+      "category": "ui",
+      "description": "Add priority dropdown selector to task edit modal",
+      "steps": [
+        "Add priority field to task edit form",
+        "Wire up onChange to save immediately",
+        "Show current priority as selected value"
+      ],
+      "verification": [
+        "Dropdown shows all priority options",
+        "Current priority is pre-selected",
+        "Changes save immediately on selection",
+        "Typecheck passes",
+        "Verify in browser"
+      ],
+      "passes": false
+    },
+    {
+      "category": "ui",
+      "description": "Add filter dropdown to filter tasks by priority level",
+      "steps": [
+        "Add filter dropdown with options: All | High | Medium | Low",
+        "Persist filter selection in URL params",
+        "Filter task list based on selection",
+        "Add empty state message when no tasks match"
+      ],
+      "verification": [
+        "Filter persists in URL params",
+        "Task list updates when filter changes",
+        "Empty state shows when no tasks match",
+        "Typecheck passes",
+        "Verify in browser"
+      ],
+      "passes": false
+    }
+  ]
+}
