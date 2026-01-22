@@ -6,7 +6,7 @@ You are an autonomous coding agent working on a software project.
 
 1. Read the PRD at `prd.json` (in the same directory as this file)
 2. Read the progress log at `progress.txt` (check Codebase Patterns section first)
-3. Check you're on the correct branch from PRD `branchName`. If not, check it out or create from main.
+3. Check you're on the correct branch from PRD `branchName`. If not, check it out or create from main. When pushing, set upstream to this branch (not main): `git push -u origin <branchName>`
 4. Pick the **highest priority** user story where `passes: false`
 5. Implement that single user story
 6. Run quality checks (e.g., typecheck, lint, test - use whatever your project
@@ -17,9 +17,18 @@ You are an autonomous coding agent working on a software project.
     You can also use the playwright MCP to test UI and UX changes - this is
     important for testing flows.
 7. Update AGENTS.md files if you discover reusable patterns (see below)
-8. If checks pass, commit ALL changes with message: `feat: [Story ID] - [Story Title]`
-9. Update the PRD to set `passes: true` for the completed story
-10. Append your progress to `progress.txt`
+8. Append your progress to `progress.txt` (REQUIRED before committing)
+9. If checks pass, commit ALL changes with message: `feat: [Story ID] - [Story Title]`
+10. Update the PRD to set `passes: true` for the completed story
+
+## Test Guidance
+
+When implementing a story, consider whether tests are appropriate:
+- **Add tests** for new functionality, bug fixes, and behavior changes
+- **Update existing tests** if you change behavior they cover
+- **Skip tests** for trivial changes (config, copy, formatting, etc.)
+
+If you add tests, note what you tested in your progress.txt entry. If you skip tests, briefly explain why (e.g., "No tests added - copy-only change").
 
 ## Notes
 - Before making changes, **search the codebase** (do not assume something is not implemented) using subagents.
@@ -86,6 +95,7 @@ Only update AGENTS.md if you have **genuinely reusable knowledge** that would he
 
 - ALL commits must pass your project's quality checks (typecheck, lint, test
   [whatever relevant files])
+- **Every completed story MUST have a progress.txt entry** - no exceptions
 - Do NOT commit broken code
 - Keep changes focused and minimal
 - Follow existing code patterns
