@@ -50,16 +50,10 @@ And watch ralph work!
 
 ### Installation
 
-Copy the `ralph/` directory into your project:
+Run the following command in your project root:
 
 ```bash
-cp -r ralph/ /path/to/your/project/ralph/
-```
-
-You can also copy the skills into your project:
-
-```bash
-cp -r skills/ /path/to/your/project/.claude/skills/
+curl -sL https://raw.githubusercontent.com/jckw/ralph/main/install.sh | bash
 ```
 
 ## Usage
